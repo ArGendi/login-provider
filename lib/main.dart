@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:login_with_provider/cubits/user_cubit.dart';
 import 'package:login_with_provider/providers/user_provider.dart';
 import 'package:login_with_provider/screens/login_screen.dart';
+import 'package:login_with_provider/screens/login_screen_cubit.dart';
 import 'package:provider/provider.dart';
 
 void main(){
@@ -17,13 +20,17 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
+    //MultiProvider
+    return MultiBlocProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => UserProvider()),
+        // for Provider
+        //ChangeNotifierProvider(create: (context) => UserProvider()),
+
+        BlocProvider(create: (context) => UserCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: LoginScreen(),
+        home: LoginScreenCubit(),
       ),
     );
   }

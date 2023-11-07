@@ -9,4 +9,14 @@ class UserProvider extends ChangeNotifier{
     password = newPass;
     notifyListeners();
   }
+
+  void setEmail(String newEmail){
+    email = newEmail;
+    notifyListeners();
+  }
+
+  void setPass(String newPass){
+    email = newPass;
+    notifyListeners();
+  }
 }
